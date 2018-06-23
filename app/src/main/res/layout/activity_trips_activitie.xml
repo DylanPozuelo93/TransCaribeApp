@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TripsActivity">
+
+
+    <include
+        android:id="@+id/toolbar_main1"
+        layout="@layout/appbar_trips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <include
+        android:id="@+id/collapsible_bar"
+        layout="@layout/collaspsible_trips_map"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main1" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_trips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/collapsible_bar">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_trips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryAlpha"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
+            app:tabMode="fixed"
+            app:tabTextColor="@color/tabTextColor" />
+    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_to_show"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        app:layout_anchor="@id/toolbar_main1"
+        app:layout_anchorGravity="bottom|end"
+        app:layout_behavior="@string/cast_expanded_controller_ad_in_progress"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar_main1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main1"
+        app:layout_constraintVertical_bias="0.425"
+        app:srcCompat="@drawable/ic_search_black_24dp" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        style="@style/Widget.Design.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_gradient"
+        app:itemIconTint="@color/colorTextIcons"
+        app:itemTextColor="@color/colorTextIcons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+
+
+</android.support.constraint.ConstraintLayout>
